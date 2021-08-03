@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/client";
 
+const callbackUrl = `https://localhost:3000/profile`;
+
 export function Navbar() {
   const [session] = useSession();
 
@@ -15,10 +17,7 @@ export function Navbar() {
         </Link>
       </div>
       {!session && (
-        <button
-          onClick={() => signIn("instagram", { callbackUrl: `https://localhost:3000/profile` })}
-          className="text-blue-600 font-bold"
-        >
+        <button onClick={() => signIn("instagram", { callbackUrl })} className="text-blue-600 font-bold">
           Join
         </button>
       )}
