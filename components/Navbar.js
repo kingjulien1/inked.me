@@ -12,7 +12,9 @@ export function Navbar() {
       <Link href="/search">
         <a>Search</a>
       </Link>
-      {!session && <button onClick={() => signIn("instagram")}>Join</button>}
+      {!session && (
+        <button onClick={() => signIn("instagram", { callbackUrl: `https://localhost:3000/profile` })}>Join</button>
+      )}
       {session && (
         <Link href="/profile">
           <a>Profile</a>
