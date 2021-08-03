@@ -5,15 +5,22 @@ export function Navbar() {
   const [session] = useSession();
 
   return (
-    <nav>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Link href="/search">
-        <a>Search</a>
-      </Link>
+    <nav className="py-2 px-4 flex justify-between sticky">
+      <div>
+        <Link href="/">
+          <a className="mr-4">Home</a>
+        </Link>
+        <Link href="/search">
+          <a>Search</a>
+        </Link>
+      </div>
       {!session && (
-        <button onClick={() => signIn("instagram", { callbackUrl: `https://localhost:3000/profile` })}>Join</button>
+        <button
+          onClick={() => signIn("instagram", { callbackUrl: `https://localhost:3000/profile` })}
+          className="text-blue-600 font-bold"
+        >
+          Join
+        </button>
       )}
       {session && (
         <Link href="/profile">
