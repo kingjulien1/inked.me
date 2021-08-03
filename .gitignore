@@ -35,3 +35,6 @@ yarn-error.log*
 
 # https certificates for localhost
 /certificates/
+
+# firebase
+firebase-config.js

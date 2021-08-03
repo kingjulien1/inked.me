@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
+import { FirebaseAdapter } from "@next-auth/firebase-adapter";
+import firebase from "lib/firebase";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -9,4 +11,5 @@ export default NextAuth({
       clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
     }),
   ],
+  adapter: FirebaseAdapter(firebase.firestore()),
 });
