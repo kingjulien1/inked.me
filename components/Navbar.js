@@ -5,7 +5,7 @@ export function Navbar() {
   const [session] = useSession();
 
   return (
-    <nav className="py-2 px-4 flex justify-between sticky">
+    <nav className="py-2 px-4 flex justify-between sticky text-sm">
       <div>
         <Link href="/">
           <a className="mr-4">Home</a>
