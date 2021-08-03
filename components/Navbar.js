@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { signIn, useSession } from "next-auth/client";
 
 export function Navbar() {
+  const [session] = useSession();
+
   return (
     <nav>
       <Link href="/">
@@ -9,10 +12,12 @@ export function Navbar() {
       <Link href="/search">
         <a>Search</a>
       </Link>
-      <Link href="/profile">
-        <a>Profile</a>
-      </Link>
-      <button>Join</button>
+      {!session && <button onClick={() => signIn("instagram")}>Join</button>}
+      {session && (
+        <Link href="/profile">
+          <a>Profile</a>
+        </Link>
+      )}
     </nav>
   );
 }
