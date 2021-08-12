@@ -1,3 +1,9 @@
+import { PageLayout } from "components/layouts/PageLayout";
+
 export default function Home() {
-  return <h1>inked.me</h1>;
+  return (
+    <PageLayout>
+      <h1 className="heading-1">Home</h1>
+    </PageLayout>
+  );
 }

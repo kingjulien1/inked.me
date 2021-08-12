@@ -9,12 +9,12 @@ export function Navbar() {
   const [session] = useSession();
   const [isAtTopOfPage, setIsAtTopOfPage] = useState(true);
   const scrollHandler = useCallback(() => setIsAtTopOfPage(window?.pageYOffset <= 0), [setIsAtTopOfPage]);
-  useEventListener("scroll", scrollHandler, typeof window != "undefined" && window);
+  useEventListener("scroll", scrollHandler);
 
   return (
     <nav
       className={[
-        "py-2 px-4 flex justify-between text-sm sticky top-0 bg-white dark:bg-black transition-shadow",
+        "py-2 px-4 flex justify-between text-sm sticky top-0 bg-white dark:bg-black transition-shadow z-10",
         isAtTopOfPage ? null : "shadow-md",
       ].join(" ")}
     >

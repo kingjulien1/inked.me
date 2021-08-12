@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  * @param {function} handler function to be executed on the event
  * @param {DomElement} element on which the event listener listens
  */
-export function useEventListener(eventName, handler, element) {
+export function useEventListener(eventName, handler, element = typeof window != "undefined" && window) {
   // Create a ref that stores handler
   const savedHandler = useRef();
   // Update ref.current value if handler changes.
